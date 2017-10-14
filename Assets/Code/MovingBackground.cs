@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovingBackground : MonoBehaviour
 {
-    public float movingSpeed = 4;
+    public float movingSpeed = 0.75f;
     public float endXLocation, startXLocation;
 
     public PipeSpawn pipeSpawner;
