@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovingFlappyBird : MonoBehaviour
 {
-    public float jump = 50;
+    public float jump = 2;
 
     public Sprite[] birdSprites;
 
