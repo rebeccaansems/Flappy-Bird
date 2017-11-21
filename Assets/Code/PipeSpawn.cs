@@ -23,6 +23,7 @@ public class PipeSpawn : MonoBehaviour
             if (UnityEngine.Random.Range(0, 3) == 0 && newPipe.transform.position.y <= -0.5f)
             {
                 GameObject secondaryNewPipe = Instantiate(pipe);
+                Destroy(secondaryNewPipe.transform.GetChild(0).gameObject);
                 secondaryNewPipe.transform.parent = this.transform;
                 secondaryNewPipe.GetComponent<SpriteRenderer>().sprite = topPipe;
                 secondaryNewPipe.transform.position = new Vector3(startPosX, UnityEngine.Random.Range(2 + newPipe.transform.position.y, 2f), -5);
@@ -36,6 +37,7 @@ public class PipeSpawn : MonoBehaviour
             if (UnityEngine.Random.Range(0, 3) == 0 && newPipe.transform.position.y >= -1f)
             {
                 GameObject secondaryNewPipe = Instantiate(pipe);
+                Destroy(secondaryNewPipe.transform.GetChild(0).gameObject);
                 secondaryNewPipe.transform.parent = this.transform;
                 secondaryNewPipe.GetComponent<SpriteRenderer>().sprite = bottomPipe;
                 secondaryNewPipe.transform.position = new Vector3(startPosX, UnityEngine.Random.Range(-2 + newPipe.transform.position.y, -2f), -5);
