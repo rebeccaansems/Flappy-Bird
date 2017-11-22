@@ -7,6 +7,16 @@ public class CollisionFlappyBird : MonoBehaviour
 {
     public CanvasGroup resetPanel;
 
+    private bool birdIsDead = false;
+
+    private void Update()
+    {
+        if (this.transform.position.y < -1.3 || this.transform.position.y > 1.4)
+        {
+            KillBird();
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Pipe")
@@ -21,19 +31,18 @@ public class CollisionFlappyBird : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        KillBird();
-        Time.timeScale = 0;
-
-        if(resetPanel != null)
+        if (resetPanel != null && birdIsDead)
         {
             resetPanel.alpha = 1;
             resetPanel.interactable = true;
             resetPanel.blocksRaycasts = true;
+            Time.timeScale = 0;
         }
     }
 
     void KillBird()
     {
         Destroy(this.gameObject.GetComponent<MovingFlappyBird>());
+        birdIsDead = true;
     }
 }
