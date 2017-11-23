@@ -7,7 +7,7 @@ public class CollisionFlappyBird : MonoBehaviour
 {
     public CanvasGroup resetPanel;
 
-    private bool birdIsDead = false;
+    private bool birdIsDead = false, birdHitPipe = false;
 
     private void Update()
     {
@@ -15,12 +15,19 @@ public class CollisionFlappyBird : MonoBehaviour
         {
             KillBird();
         }
+
+        if (birdHitPipe)
+        {
+            Vector3 fallingLocation = new Vector3(0.75f * Time.deltaTime, 0, 0);
+            this.transform.position -= fallingLocation;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Pipe")
         {
+            birdHitPipe = true;
             KillBird();
         }
         else if (coll.gameObject.tag == "Score")

@@ -7,8 +7,7 @@ public class MovingPipe : MonoBehaviour
 
     public float movingSpeed = 0.75f;
     public float endXLocation, startXLocation;
-
-
+    
     void Update()
     {
         this.transform.position = new Vector3(this.transform.position.x - (movingSpeed * Time.deltaTime), this.transform.position.y, -5);
