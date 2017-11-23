@@ -11,11 +11,13 @@ public class CollisionFlappyBird : MonoBehaviour
 
     private void Update()
     {
+        //If bird is too high/low
         if (this.transform.position.y < -1.3 || this.transform.position.y > 1.4)
         {
             KillBird();
         }
 
+        //bird slides down pipe
         if (birdHitPipe)
         {
             Vector3 fallingLocation = new Vector3(0.75f * Time.deltaTime, 0, 0);
@@ -25,11 +27,13 @@ public class CollisionFlappyBird : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll)
     {
+        //bird rams into pipe
         if (coll.gameObject.tag == "Pipe")
         {
             birdHitPipe = true;
             KillBird();
         }
+        //bird hits score zone
         else if (coll.gameObject.tag == "Score")
         {
             this.GetComponent<ScoringFlappyBird>().currentScore++;
@@ -38,6 +42,7 @@ public class CollisionFlappyBird : MonoBehaviour
 
     void OnBecameInvisible()
     {
+        //display reset screen
         if (resetPanel != null && birdIsDead)
         {
             resetPanel.alpha = 1;
@@ -49,6 +54,7 @@ public class CollisionFlappyBird : MonoBehaviour
 
     void KillBird()
     {
+        //make bird unable to react to mouse pressing
         Destroy(this.gameObject.GetComponent<MovingFlappyBird>());
         birdIsDead = true;
     }

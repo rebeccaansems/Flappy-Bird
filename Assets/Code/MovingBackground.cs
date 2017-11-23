@@ -11,6 +11,7 @@ public class MovingBackground : MonoBehaviour
 
     void Update()
     {
+        //background moves and when is out of screen resets
         this.transform.position = new Vector3(this.transform.position.x - (movingSpeed * Time.deltaTime), this.transform.position.y, 0);
 
         if (this.transform.position.x < endXLocation)

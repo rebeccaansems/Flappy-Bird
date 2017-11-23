@@ -21,6 +21,7 @@ public class MovingFlappyBird : MonoBehaviour
 
     void Update()
     {
+        //Flappy bird movement
         if (Input.GetMouseButtonDown(0))
         {
             rigidBody.velocity = new Vector3(0, jump, 0);
@@ -29,6 +30,7 @@ public class MovingFlappyBird : MonoBehaviour
 
     void LateUpdate()
     {
+        //Flappy bird animations
         if(Time.frameCount % 10 == 0)
         {
             spriteIndex++;

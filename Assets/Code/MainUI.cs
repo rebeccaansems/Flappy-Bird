@@ -9,6 +9,7 @@ public class MainUI : MonoBehaviour
 
     public void Start()
     {
+        //reset screen ui
         Time.timeScale = 0;
 
         resetPanel.alpha = 0;

@@ -10,6 +10,7 @@ public class MovingPipe : MonoBehaviour
     
     void Update()
     {
+        //Pipe movement
         this.transform.position = new Vector3(this.transform.position.x - (movingSpeed * Time.deltaTime), this.transform.position.y, -5);
 
         if (this.transform.position.x < endXLocation)

@@ -7,10 +7,10 @@ public class ScoringFlappyBird : MonoBehaviour
 {
     public int currentScore = 0;
     public Text scoringText;
-
-    // Update is called once per frame
+    
     void Update()
     {
+        //update displayed score
         scoringText.text = currentScore.ToString("000");
     }
 }
